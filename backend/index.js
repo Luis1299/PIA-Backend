@@ -1,5 +1,6 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
+const cors = require('cors')
 
 require('dotenv').config() // leer el archivo .env
 require('./database') // conectando a la db
@@ -10,6 +11,9 @@ const PORT = process.env.PORT || 8000
 // Configurar body del request
 app.use(express.urlencoded({extended: true}))
 app.use(express.json()) // para que aparezca como json
+
+// Configurar CORS 
+app.use(cors())
 
 // Configurando rutas
 const userRoutes = require('./routes/user')
