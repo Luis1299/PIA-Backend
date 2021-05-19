@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 
 const BookSchema = new mongoose.Schema({
-    name: { type: String, required: true, minLength: [5, 'errir']},
+    name: { type: String, required: true},
     author: { type: String, required: true},
-    price: { type: Number, required: true, min: 0},
+    price: { type: Number, required: true},
+    imageUri: { type: String, required: true },
     timestamp: { type: Date, default: Date.now }
 })
 
@@ -13,9 +14,10 @@ BookSchema.methods.isValid = function(body){
         nombre: '',
         autor: '',
         precio: '',
+        imageUri: '',
         msg: ''
     }
-    if(!body.name || !body.author || !body.price){
+    if(!body.name || !body.author || !body.price || !body.imageUri){
         response.msg = "Debe llenar todos los campos"
         response.isValid = false
     }
@@ -36,12 +38,14 @@ BookSchema.methods.isValid = function(body){
             response.precio = "El precio debe ser mayor a 0"
             response.isValid = false
         }
+        if(body.imageUri.length < 10){
+            response.autor = "El url es muy corto"
+            response.isValid = false
+        }
     } 
     return response
 }
 
 const Book = mongoose.model('Book', BookSchema)
-
-
 
 module.exports = Book
