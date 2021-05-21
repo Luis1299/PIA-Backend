@@ -18,8 +18,6 @@ app.use(cors())
 // Configurando rutas
 const userRoutes = require('./routes/user')
 app.use('/users', userRoutes)
-const bookRoutes = require('./routes/book')
-app.use('/books', bookRoutes)
 
 // Iniciando servidor
 app.listen(PORT, _ => {

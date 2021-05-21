@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
     lastName: { type: String, required: true},
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    isAdmin: { type: Boolean, required: true, default: false},
+    country: {type: String, required: true},
     timestamp: { type: Date, default: Date.now }
 })
 
@@ -16,16 +16,16 @@ UserSchema.methods.isValid = async function(body){
         lastName: '',
         email: '',
         password: '',
-        isAdmin: '',
+        country: '',
         msg: ''
     }    
-    if(!body.firstName || !body.lastName || !body.email || !body.password){
+    if(!body.firstName || !body.lastName || !body.email || !body.password  || !body.country){
         response.msg = "Los campos no estan completos!"
         response.isValid = false
     }
     else{
-        const user = await User.findOne({email: email})
-        if(user){
+        const exists = await User.exists({email: email})
+        if(exists == true){
             response.email = "Email ya en uso"
             response.isValid = false
         }        
@@ -50,6 +50,11 @@ UserSchema.methods.isValid = async function(body){
             response.password = "La contraseña es invalida"
             response.isValid = false
         }
+        if(body.country.length < 3){
+            response.country = "El pais es muy corto"
+            response.isValid = false
+        }
+
     }
     return response
 }
