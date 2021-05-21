@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
         password: crypto.createHash("sha256").update(password).digest("hex")
     })
     if(!user){
-        return res.status(404).json({
+        return res.status(400).json({
             msg: "Error, vuelve a intentarlo"
         })
     }
