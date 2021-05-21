@@ -24,10 +24,6 @@ app.listen(PORT, _ => {
     console.log("Servidor iniciado en el puerto: " + PORT)
 })
 
-app.get('/', (req, res)=>{
-    res.redirect('/books')
-})
-
 app.get('*', (req, res) => {
-    res.status(404).send('K? 404 esta pagina no existe :(\n prueba con /books o /users')
+    res.status(404).send('404 Esa pagina o ruta no existe')
 })
