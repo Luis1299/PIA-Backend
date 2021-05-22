@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "60a6cdbec5b62e32a8f2372a"
+  },
+  "firstName": "mail2@mail.com",
+  "lastName": "last2",
+  "email": "mail2@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "mexico",
+  "timestamp": {
+    "$date": "2021-05-20T20:59:42.016Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a6eb42dff580374816faa2"
+  },
+  "firstName": "user7",
+  "lastName": "last7",
+  "email": "mail7@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "mexico",
+  "timestamp": {
+    "$date": "2021-05-20T23:05:38.872Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a7e3857bb4321968557a0a"
+  },
+  "firstName": "first",
+  "lastName": "last",
+  "email": "aamail@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "mexico",
+  "timestamp": {
+    "$date": "2021-05-21T16:44:53.317Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a7e3e07bb4321968557a0c"
+  },
+  "firstName": "first20",
+  "lastName": "last20",
+  "email": "mail20@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "usa",
+  "timestamp": {
+    "$date": "2021-05-21T16:46:24.426Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a7e7feaacd0110f4d32934"
+  },
+  "firstName": "firstname",
+  "lastName": "lastname",
+  "email": "emailaa@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "usa",
+  "timestamp": {
+    "$date": "2021-05-21T17:03:58.193Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a7f47ae2473319fc43197e"
+  },
+  "firstName": "first1",
+  "lastName": "add",
+  "email": "mail@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "canada",
+  "timestamp": {
+    "$date": "2021-05-21T17:57:14.244Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a7f4a4e2473319fc43197f"
+  },
+  "firstName": "primer",
+  "lastName": "ultimo",
+  "email": "mail22@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "canada",
+  "timestamp": {
+    "$date": "2021-05-21T17:57:56.347Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a7fe3b22a5b2208001b160"
+  },
+  "firstName": "first1",
+  "lastName": "last1",
+  "email": "email@mail.com",
+  "password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+  "country": "usa",
+  "timestamp": {
+    "$date": "2021-05-21T18:38:51.886Z"
+  },
+  "__v": 0
+}]

@@ -24,6 +24,7 @@ app.listen(PORT, _ => {
     console.log("Servidor iniciado en el puerto: " + PORT)
 })
 
+//404
 app.get('*', (req, res) => {
-    res.status(404).send('404 Esa pagina o ruta no existe')
+    res.status(404).send('<div><h1>404 Pagina no encontrada</h1><br/>Easter egg<br/><img width="600" height="400" src="http://images2.memedroid.com/images/UPLOADED54/524dde0e6668e.jpeg"/></div>')
 })

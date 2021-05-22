@@ -11,10 +11,10 @@ router.get('/', async (req, res) => {
     }
     token = token.replace('Bearer ', '')
     try{
-        const valido = await jwt.verify(token, process.env.SECRET_KEY)
+        const valido = await jwt.verify(token, process.env.SECRET_KEY || "SUPERSEKRETO") // Valida el token
         if(valido){
-            const users = await User.find({}).select('-timestamp -__v -password')
-            res.status(200).json(users)
+            const users = await User.find({}).select('-timestamp -__v -password') // obtiene los usuarios
+            res.status(200).json(users) //retorna el resultado
         }
     }catch(err){
         if(err instanceof jwt.TokenExpiredError){
@@ -39,7 +39,8 @@ router.post('/login', async (req, res) => {
     // generar jwt
     const token = await jwt.sign({
         id: user._id
-    }, process.env.SECRET_KEY, {expiresIn: '6h'})
+    }, process.env.SECRET_KEY || "SUPERSEKRETO", {expiresIn: '6h'})
+    // enviar usuario y token
     return res.status(200).json({
         token: token,
         firstName: user.firstName,
@@ -56,17 +57,22 @@ router.post('/register', async (req, res) => {
     if(!body.isAdmin){
         body.isAdmin = false
     }
+    // se crea el usuario
     const user = new User({firstName, lastName, email, password, country})
-    const response = await user.isValid(body)
+    const response = await user.isValid(body) // valida datos
     if(!response.isValid){
-        res.status(400).json(response)
+        res.status(400).json(response) // Los datos no son validos
     }
     else{
+        // hashing del password
         user.password = await crypto.createHash("sha256").update(body.password).digest("hex")
+        //se guarda el usuario en la base de datos
         await user.save()
+
         const token = await jwt.sign({
             id: user._id
         }, process.env.SECRET_KEY, {expiresIn: '6h'})
+        // se retorna el usuario y token
         res.status(200).json({
             token: token,
             firstName: user.firstName,
@@ -88,13 +94,15 @@ router.put('/:id', async(req, res) => {
         res.status(401).send("Error, inicia sesion primero")
     }
     token = token.replace('Bearer ', '')
+
     const {firstName, lastName, country} = req.body
     if(!firstName && !lastName && !country){
         return res.status(400).send("No se ha enviado informacion a traves del cuerpo del request")
     }
+
     try{
         // Verificar token
-        const valido = await jwt.verify(token, process.env.SECRET_KEY)
+        const valido = await jwt.verify(token, process.env.SECRET_KEY || "SUPERSEKRETO")
         if(valido){
             // verificar existencia del usuario
             const user = await User.findOne({_id: id})
@@ -105,8 +113,9 @@ router.put('/:id', async(req, res) => {
                     user.lastName = lastName
                 if(country)
                     user.country = country
+                // se guarda en la base de datos el usuario actualizado
                 await user.save()
-                // return res.status(200).send("Actualizado con exito")
+                // retorna los usuarios
                 return res.status(200).json(await User.find({}))
             }else{
                 res.status(404).send("Error, ese usuario no existe")
@@ -123,19 +132,24 @@ router.put('/:id', async(req, res) => {
 //DELETE
 router.delete('/:id', async(req, res) => {
     const id = req.params.id
+    
+    // Validando el envio del token
     let token = req.headers.authorization
     if(!token){
         res.status(401).send("Error, inicia sesion primero")
     }
     token = token.replace('Bearer ', '')
+
     try{
         // Verificar token
-        const valido = await jwt.verify(token, process.env.SECRET_KEY)
+        const valido = await jwt.verify(token, process.env.SECRET_KEY || "SUPERSEKRETO")
         if(valido){
             // verificar existencia del usuario
             const user = await User.findOne({_id: id})
             if(user){
+                // borrar el usuario
                 await user.delete()
+                // obtener usuarios y enviar
                 const users = await User.find({}).select('-timestamp -__v -password')
                 return res.status(200).json(users)
             }else{
