@@ -33,13 +33,13 @@ router.post('/login', async (req, res) => {
     })
     if(!user){
         return res.status(400).json({
-            msg: "Error, vuelve a intentarlo"
+            msg: "Email o contraseña no valido"
         })
     }
     // generar jwt
     const token = await jwt.sign({
         id: user._id
-    }, process.env.SECRET_KEY, {expiresIn: '2h'})
+    }, process.env.SECRET_KEY, {expiresIn: '6h'})
     return res.status(200).json({
         token: token,
         firstName: user.firstName,
@@ -66,7 +66,7 @@ router.post('/register', async (req, res) => {
         await user.save()
         const token = await jwt.sign({
             id: user._id
-        }, process.env.SECRET_KEY, {expiresIn: '2h'})
+        }, process.env.SECRET_KEY, {expiresIn: '6h'})
         res.status(200).json({
             token: token,
             firstName: user.firstName,
@@ -109,7 +109,7 @@ router.put('/:id', async(req, res) => {
                 // return res.status(200).send("Actualizado con exito")
                 return res.status(200).json(await User.find({}))
             }else{
-                res.status(403).send("Error, ese usuario no existe")
+                res.status(404).send("Error, ese usuario no existe")
             }
         }
     }catch(err){

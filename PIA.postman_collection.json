@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "4daa3c48-3623-4516-9440-9cc96938b31c",
+		"name": "PIA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "Nombre",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Apellido",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "correo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "contraseña",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "mexico",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET users",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "correo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "contraseña",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT edit user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "<Nombre>",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "<Apellido>",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "<Correo>",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "<Pais>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/users/<id>",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"<id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/users/60a7fea533623e1fb4e069ce",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"60a7fea533623e1fb4e069ce"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

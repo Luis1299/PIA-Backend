@@ -1,0 +1,19 @@
+{
+  "name": "pia-backend",
+  "version": "1.0.0",
+  "description": "servidor para frontend y backend del pia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luis1299/PIA-Backend.git"
+  },
+  "author": "luis",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Luis1299/PIA-Backend/issues"
+  },
+  "homepage": "https://github.com/Luis1299/PIA-Backend#readme"
+}

@@ -17,14 +17,17 @@ function UserProvider(props){
         try{
             let result = await post('users/login', data)
             result = await result.json()
-            setToken(result.token)
-            await setUser({
+            console.log(result)
+            const user = {
                 email: result.email,
                 firstName: result.firstName,
                 lastName: result.lastName,
                 country: result.country,
-                uid: result._id
-            })
+                uid: result.uid
+            }
+            setToken(result.token)
+            setUser(user)
+            setUserStorage(user)
             return Promise.resolve(result)
         }catch(err){
             return Promise.reject(await err.json())
@@ -45,13 +48,15 @@ function UserProvider(props){
             let result = await post('users/register', data)
             result = await result.json()
             setToken(result.token)
-            setUser({
+            const user = {
                 email: result.email,
                 firstName: result.firstName,
                 lastName: result.lastName,
                 country: result.country,
-                uid: result._id
-            })
+                uid: result.uid
+            }
+            await setUser(user)
+            setUserStorage(user)
             return Promise.resolve(result)
         }catch(err){
             return Promise.reject(await err.json())
@@ -61,7 +66,7 @@ function UserProvider(props){
     const update = async (id, data) => {
         let result = await put('users/'+id, data, getToken())
         if(result.status === 200)
-            return Promise.resolve(await result.json())
+            return Promise.resolve(result)
         if(result.status === 401) // Token invalido
             await logout()
         return Promise.reject(result)
@@ -77,7 +82,7 @@ function UserProvider(props){
     }
 
     const logout = async () => {
-            delToken()
+        delToken()
         setUser({
             firstName: "",
             lastName: "",
@@ -85,6 +90,7 @@ function UserProvider(props){
             uid: "",
             country: ""
         })
+        delUserStorage()
         window.location.reload()
     }
 
@@ -98,11 +104,11 @@ function UserProvider(props){
     }
 
     const getuid = () => {
-        return user.uid
+        return getUserStorage().uid
     }
 
     const getUser = () => {
-        return user
+        return getUserStorage().user
     }
     
     const isLogedIn = () => {
@@ -120,6 +126,18 @@ function UserProvider(props){
     const delToken = () => {
         // localStorage.removeItem('tok3n')
         localStorage.clear()
+    }
+
+    const setUserStorage = (user) => {
+        localStorage.setItem('user', JSON.stringify(user))
+    }
+
+    const getUserStorage = () => {
+        return JSON.parse(localStorage.getItem('user'))
+    }
+
+    const delUserStorage = () => {
+        localStorage.removeItem('user')
     }
 
 

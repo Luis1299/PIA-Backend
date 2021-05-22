@@ -1,4 +1,4 @@
-const url = 'http://localhost:8000/'
+import url from '../config'
 
 export async function get(path, token){
     let result = await fetch(url+path, {

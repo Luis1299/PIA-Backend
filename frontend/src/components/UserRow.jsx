@@ -10,7 +10,7 @@ function UserRow(props){
     const [icon, setIcon] = useState('pencil')
     const [editMode, setEditMode] = useState(false)
 
-    const {destroy, update} = useContext(UserContext)
+    const {destroy, update, logout, getuid} = useContext(UserContext)
 
     const history = useHistory()
 
@@ -29,29 +29,34 @@ function UserRow(props){
 
     async function actualizar(){
         try{
-            await update(props.id, {
+            let result = await update(props.id, {
                 firstName: firstName,
                 lastName: lastName,
                 country: country
             })
+            if(result.status === 401) // token invalido
+                logout()
             window.location.reload()
         }catch(err){
             if(err.status === 401){ // Token expiro o invalido
                 alert("Su token ha expirado o es invalido, inicie sesion nuevamente")
                 history.push('/login')
             }
+            console.log(err)
         }
     }
 
     async function borrar(){
         try{
             await destroy(props.id)
+            if(props.id === getuid())
+                await logout()
             window.location.reload()
         }catch(err){
-            if(err.status === 401){ // Token expiro o invalido
-                alert("Su token ha expirado o es invalido, inicie sesion nuevamente")
-                history.push('/login')
-            }
+            // if(err.status === 401){ // Token expiro o invalido
+            //     alert("Su token ha expirado o es invalido, inicie sesion nuevamente")
+            //     history.push('/login')
+            // }
         }
     }
 
