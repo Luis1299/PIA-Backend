@@ -3,6 +3,8 @@ const User = require('../models/User')
 const jwt = require('jsonwebtoken') //jwt
 const crypto = require('crypto') // hashing
 
+const SecretKey = process.env.SECRET_KEY || "SUPERSEKRETO"
+
 //GET
 router.get('/', async (req, res) => {
     let token = req.headers.authorization
@@ -11,7 +13,7 @@ router.get('/', async (req, res) => {
     }
     token = token.replace('Bearer ', '')
     try{
-        const valido = await jwt.verify(token, process.env.SECRET_KEY || "SUPERSEKRETO") // Valida el token
+        const valido = await jwt.verify(token, SecretKey) // Valida el token
         if(valido){
             const users = await User.find({}).select('-timestamp -__v -password') // obtiene los usuarios
             res.status(200).json(users) //retorna el resultado
@@ -39,7 +41,7 @@ router.post('/login', async (req, res) => {
     // generar jwt
     const token = await jwt.sign({
         id: user._id
-    }, process.env.SECRET_KEY || "SUPERSEKRETO", {expiresIn: '6h'})
+    }, SecretKey, {expiresIn: '6h'})
     // enviar usuario y token
     return res.status(200).json({
         token: token,
@@ -71,7 +73,7 @@ router.post('/register', async (req, res) => {
 
         const token = await jwt.sign({
             id: user._id
-        }, process.env.SECRET_KEY, {expiresIn: '6h'})
+        }, SecretKey, {expiresIn: '6h'})
         // se retorna el usuario y token
         res.status(200).json({
             token: token,
@@ -102,7 +104,7 @@ router.put('/:id', async(req, res) => {
 
     try{
         // Verificar token
-        const valido = await jwt.verify(token, process.env.SECRET_KEY || "SUPERSEKRETO")
+        const valido = await jwt.verify(token, SecretKey)
         if(valido){
             // verificar existencia del usuario
             const user = await User.findOne({_id: id})
@@ -142,7 +144,7 @@ router.delete('/:id', async(req, res) => {
 
     try{
         // Verificar token
-        const valido = await jwt.verify(token, process.env.SECRET_KEY || "SUPERSEKRETO")
+        const valido = await jwt.verify(token, SecretKey)
         if(valido){
             // verificar existencia del usuario
             const user = await User.findOne({_id: id})
