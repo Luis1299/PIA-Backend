@@ -7,6 +7,7 @@ const SecretKey = process.env.SECRET_KEY || "SUPERSEKRETO"
 
 //GET
 router.get('/', async (req, res) => {
+    // Verificando el token jwt
     let token = req.headers.authorization
     if(!token){
         return res.status(401).send("Error, inicia sesion primero")
@@ -89,6 +90,11 @@ router.post('/register', async (req, res) => {
 //PUT
 router.put('/:id', async(req, res) => {
         
+    const {firstName, lastName, country} = req.body
+    if(!firstName && !lastName && !country){
+        return res.status(400).send("No se ha enviado informacion a traves del cuerpo del request")
+    }
+
     // Verificar token
     const id = req.params.id
     let token = req.headers.authorization
@@ -96,11 +102,6 @@ router.put('/:id', async(req, res) => {
         res.status(401).send("Error, inicia sesion primero")
     }
     token = token.replace('Bearer ', '')
-
-    const {firstName, lastName, country} = req.body
-    if(!firstName && !lastName && !country){
-        return res.status(400).send("No se ha enviado informacion a traves del cuerpo del request")
-    }
 
     try{
         // Verificar token
