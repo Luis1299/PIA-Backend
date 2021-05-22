@@ -5,6 +5,7 @@ const crypto = require('crypto') // hashing
 
 //GET
 router.get('/', async (req, res) => {
+    // Verificando el token jwt
     let token = req.headers.authorization
     if(!token){
         return res.status(401).send("Error, inicia sesion primero")
