@@ -1,2 +1,2 @@
-const url = "http://piabackend.herokuapp.com/"
+const url = location.protocol + "//piabackend.herokuapp.com/"
 export default url
