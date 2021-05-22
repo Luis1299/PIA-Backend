@@ -8,7 +8,7 @@ Para comenzar se necesitan instalar las librerias y modulos con los siguientes c
 * Instalamos librerias y modulos
 `npm install`
 
-###_ Nota _
+### _ Nota _
 Verificar que la url del archivo [config.js](https://github.com/Luis1299/PIA-Backend/blob/main/frontend/src/config.js) tenga la misma dirección del backend.
 En caso de estar en modo local cambiar la url a http://localhost:8000 o en caso de haber modificado el [.env](https://github.com/Luis1299/PIA-Backend/blob/main/backend/.env.example#L1) (el cual ya solo se llama .env) cambiar el puerto al asignado
 

@@ -1,7 +1,7 @@
-##Backend
+## Backend
 Este es la parte del servidor backend del pia
 
-###Instalar
+### Instalar
 Para comenzar se necesitan instalar las librerias y modulos con los siguientes comandos en la consola de comandos:
 * Nos ubicamos en la carpeta
 `cd <directorio del backend>`
@@ -26,7 +26,7 @@ SECRET_KEY= se asigna una llave para el hashing
 ## Endpoints 
 Los endpoints del backend suponiendo que se encuentra en modo local (http://localhost:8000)
 
-####**Obtener usuarios:** 
+#### **Obtener usuarios:**
 http://localhost:8000/users
 * Llamada curl:
 	Reemplazando `<JWT Token>` por el token obtenido al registrarse o iniciar sesión
@@ -49,9 +49,12 @@ _Donde las comillas representan el valor del atributo del usuario_
 * ** Status 401 – Not authorized**: 
 	* Token expiro: "El token ha expirado, inicia sesión nuevamente”
 	* No se envió token: "Error, inicia sesión primero”
-</br>
 
-####**Registrarse:** 
+**Prueba postman**
+![Prueba get users](https://github.com/Luis1299/PIA-Backend/blob/main/capturas/getUsers.JPG "Get users")
+--------
+
+#### **Registrarse:** 
 http://localhost:8000/users/register
 * Llamada curl:
 _Reemplazando `<Nombre>` `<Apellido>` `<correo electronico>`  `<contraseña>` y `<Pais>` por los valores 	correspondientes_
@@ -80,9 +83,12 @@ _Donde las comillas simples `''` contienen información de lo sucedido_
 ```
 { isValid: false, firstName: '', lastName: '', email: '', password: '', country: '', msg: ''}
 ```
-<br/>
 
-####**Iniciar sesión:**
+**Prueba postman**
+![Prueba /users/register](https://github.com/Luis1299/PIA-Backend/blob/main/capturas/newUser.JPG "Register")
+--------
+
+#### **Iniciar sesión:**
 http://localhost:8000/users/login
 * Llamada curl:
 ```
@@ -105,10 +111,10 @@ Se genera un token JWT que expira en 6 horas y retorna un JSON con información 
 * **Status 400 – Bad Request:**
 Retorna un mensaje en JSON:
 `{"msg": "Error, llene los datos correctamente"}`
-<br/>
+![Prueba login](https://github.com/Luis1299/PIA-Backend/blob/main/capturas/login.JPG "Login")
+--------
 
-
-####**Eliminar usuario:**
+#### **Eliminar usuario:**
 http://localhost:8000/users/ `<id del usuario>`
 * Llamada curl:
 _ Reemplazando `<id del usuario>` y `<JWT Token>` por los valores correspondientes _ 
@@ -135,7 +141,11 @@ curl -L -X DELETE "localhost:8000/users/<id del usuario>" -H "Authorization: Bea
 * **Status 404 – Not Found:** El usuario no fue encontrado, retorna un mensaje:
 “Error, ese usuario no existe”
 
-####**Editar usuario:**
+**Prueba postman**
+![Prueba eliminar](https://github.com/Luis1299/PIA-Backend/blob/main/capturas/deleteUser.JPG "Borrar user")
+--------
+
+#### **Editar usuario:**
 http://localhost:8000/users/ `<id del usuario>`
 * Llamada curl:
 _Reemplazando `<id del usuario>` `<Nombre>` `<Apellido>` `<correo electronico>` `<contraseña>` y `<JWT Token>` por los valores correspondientes (no necesariamente todos)_
@@ -183,9 +193,11 @@ Además de esos endpoints cuando se realiza una petición a un endpoint no exist
 **Status 404 – Not Found:** La página no existe: 
 “Mensaje 404”
 
+**Prueba postman**
+![Prueba editar](https://github.com/Luis1299/PIA-Backend/blob/main/capturas/updateUser.JPG "Actualizar usuario")
 
 ------------
-###Puntos
+##Puntos
 
 - [x] CRUD: Create 
 &ensp;&ensp; --Registro de nuevos usuarios [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L61-L71)
