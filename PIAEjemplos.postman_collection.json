@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "767d7307-640e-4103-b11f-3751b605d366",
+		"name": "PIA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "registroPruebaNombre",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "registroPruebaApellido",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "registro@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "registro",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "registroPruebaPais",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST Register example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "registroPruebaNombre",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "registroPruebaApellido",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "registro@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "registro",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "registroPruebaPais",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "346"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15a-8ljmBc8vebKrsURIWX0qfeP8vXU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 23 May 2021 22:34:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYWFkODc1ZTA0NGQ3MTkyYzU0OThkOCIsImlhdCI6MTYyMTgwOTI2OSwiZXhwIjoxNjIxODMwODY5fQ.e8faLrzSYOiaLgH03HMtNfIfXxNQwWyit_v6pO26iy8\",\n    \"firstName\": \"registroPruebaNombre\",\n    \"lastName\": \"registroPruebaApellido\",\n    \"email\": \"registro@mail.com\",\n    \"country\": \"registroPruebaPais\",\n    \"uid\": \"60aad875e044d7192c5498d8\"\n}"
+				}
+			]
+		},
+		{
+			"name": "POST Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "registro@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "registro",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST Login example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "registro@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "registro",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "346"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15a-YDyP9Xr+du8z16xE9Y5Cs4Ro23A\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 23 May 2021 22:56:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYWFkODc1ZTA0NGQ3MTkyYzU0OThkOCIsImlhdCI6MTYyMTgxMDU2NiwiZXhwIjoxNjIyNDIyNTY2fQ.FevPAi8qc2BY6KLjIqzsgR0FPlcf3HmJ9O6de2uH2cM\",\n    \"firstName\": \"registroPruebaNombre\",\n    \"lastName\": \"registroPruebaApellido\",\n    \"email\": \"registro@mail.com\",\n    \"country\": \"registroPruebaPais\",\n    \"uid\": \"60aad875e044d7192c5498d8\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Users example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1100"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"44c-g0I0YZQAM6XZnWHr/ArLuNJ6PC8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 23 May 2021 22:58:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"60aad875e044d7192c5498d8\",\n        \"firstName\": \"registroPruebaNombre\",\n        \"lastName\": \"registroPruebaApellido\",\n        \"email\": \"registro@mail.com\",\n        \"country\": \"registroPruebaPais\"\n    },\n    {\n        \"_id\": \"60a6cdbec5b62e32a8f2372a\",\n        \"firstName\": \"user1\",\n        \"lastName\": \"last1\",\n        \"email\": \"mail@mail.com\",\n        \"country\": \"mexico\"\n    },\n    {\n        \"_id\": \"60a6eb42dff580374816faa2\",\n        \"firstName\": \"user2\",\n        \"lastName\": \"last2\",\n        \"email\": \"mail2@mail.com\",\n        \"country\": \"mexico\"\n    },\n    {\n        \"_id\": \"60a7e3857bb4321968557a0a\",\n        \"firstName\": \"user3\",\n        \"lastName\": \"last3\",\n        \"email\": \"mail3@mail.com\",\n        \"country\": \"mexico\"\n    },\n    {\n        \"_id\": \"60a7e3e07bb4321968557a0c\",\n        \"firstName\": \"user4\",\n        \"lastName\": \"last4\",\n        \"email\": \"mail4@mail.com\",\n        \"country\": \"usa\"\n    },\n    {\n        \"_id\": \"60a7e7feaacd0110f4d32934\",\n        \"firstName\": \"user5\",\n        \"lastName\": \"last5\",\n        \"email\": \"mail5@mail.com\",\n        \"country\": \"usa\"\n    },\n    {\n        \"_id\": \"60a7f47ae2473319fc43197e\",\n        \"firstName\": \"user6\",\n        \"lastName\": \"last6\",\n        \"email\": \"mail6@mail.com\",\n        \"country\": \"canada\"\n    },\n    {\n        \"_id\": \"60a7f4a4e2473319fc43197f\",\n        \"firstName\": \"user7\",\n        \"lastName\": \"last7\",\n        \"email\": \"mail7@mail.com\",\n        \"country\": \"canada\"\n    },\n    {\n        \"_id\": \"60a7fe3b22a5b2208001b160\",\n        \"firstName\": \"user8\",\n        \"lastName\": \"last8\",\n        \"email\": \"mail8@mail.com\",\n        \"country\": \"usa\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "PUT Edit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "NombreEditado",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "ApellidoEditado",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "PaisEditado",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/60a6cdbec5b62e32a8f2372a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"60a6cdbec5b62e32a8f2372a"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PUT Edit example",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "NombreEditado",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "ApellidoEditado",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "PaisEditado",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/60a6cdbec5b62e32a8f2372a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"60a6cdbec5b62e32a8f2372a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "984"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3d8-btOyBIOAnEwkeuiv6Bwv2Y2k6dc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 23 May 2021 23:27:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"60aad875e044d7192c5498d8\",\n        \"firstName\": \"NombreEditado\",\n        \"lastName\": \"ApellidoEditado\",\n        \"email\": \"registro@mail.com\",\n        \"country\": \"PaisEditado\"\n    },\n    {\n        \"_id\": \"60a6cdbec5b62e32a8f2372a\",\n        \"firstName\": \"NombreEditado\",\n        \"lastName\": \"ApellidoEditado\",\n        \"email\": \"mail@mail.com\",\n        \"country\": \"PaisEditado\"\n    },\n    {\n        \"_id\": \"60a7e3857bb4321968557a0a\",\n        \"firstName\": \"user3\",\n        \"lastName\": \"last3\",\n        \"email\": \"mail3@mail.com\",\n        \"country\": \"mexico\"\n    },\n    {\n        \"_id\": \"60a7e3e07bb4321968557a0c\",\n        \"firstName\": \"user4\",\n        \"lastName\": \"last4\",\n        \"email\": \"mail4@mail.com\",\n        \"country\": \"usa\"\n    },\n    {\n        \"_id\": \"60a7e7feaacd0110f4d32934\",\n        \"firstName\": \"user5\",\n        \"lastName\": \"last5\",\n        \"email\": \"mail5@mail.com\",\n        \"country\": \"usa\"\n    },\n    {\n        \"_id\": \"60a7f47ae2473319fc43197e\",\n        \"firstName\": \"user6\",\n        \"lastName\": \"last6\",\n        \"email\": \"mail6@mail.com\",\n        \"country\": \"canada\"\n    },\n    {\n        \"_id\": \"60a7f4a4e2473319fc43197f\",\n        \"firstName\": \"user7\",\n        \"lastName\": \"last7\",\n        \"email\": \"mail7@mail.com\",\n        \"country\": \"canada\"\n    },\n    {\n        \"_id\": \"60a7fe3b22a5b2208001b160\",\n        \"firstName\": \"user8\",\n        \"lastName\": \"last8\",\n        \"email\": \"mail8@mail.com\",\n        \"country\": \"usa\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "DELETE User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/60a6cdbec5b62e32a8f2372a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"60a6cdbec5b62e32a8f2372a"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE User example",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/users/60a6cdbec5b62e32a8f2372a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"60a6cdbec5b62e32a8f2372a"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "844"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34c-FGr2puU+z5Psw5p8U68D5kpPVuE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 23 May 2021 23:27:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"60aad875e044d7192c5498d8\",\n        \"firstName\": \"NombreEditado\",\n        \"lastName\": \"ApellidoEditado\",\n        \"email\": \"registro@mail.com\",\n        \"country\": \"PaisEditado\"\n    },\n    {\n        \"_id\": \"60a7e3857bb4321968557a0a\",\n        \"firstName\": \"user3\",\n        \"lastName\": \"last3\",\n        \"email\": \"mail3@mail.com\",\n        \"country\": \"mexico\"\n    },\n    {\n        \"_id\": \"60a7e3e07bb4321968557a0c\",\n        \"firstName\": \"user4\",\n        \"lastName\": \"last4\",\n        \"email\": \"mail4@mail.com\",\n        \"country\": \"usa\"\n    },\n    {\n        \"_id\": \"60a7e7feaacd0110f4d32934\",\n        \"firstName\": \"user5\",\n        \"lastName\": \"last5\",\n        \"email\": \"mail5@mail.com\",\n        \"country\": \"usa\"\n    },\n    {\n        \"_id\": \"60a7f47ae2473319fc43197e\",\n        \"firstName\": \"user6\",\n        \"lastName\": \"last6\",\n        \"email\": \"mail6@mail.com\",\n        \"country\": \"canada\"\n    },\n    {\n        \"_id\": \"60a7f4a4e2473319fc43197f\",\n        \"firstName\": \"user7\",\n        \"lastName\": \"last7\",\n        \"email\": \"mail7@mail.com\",\n        \"country\": \"canada\"\n    },\n    {\n        \"_id\": \"60a7fe3b22a5b2208001b160\",\n        \"firstName\": \"user8\",\n        \"lastName\": \"last8\",\n        \"email\": \"mail8@mail.com\",\n        \"country\": \"usa\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYWFkODc1ZTA0NGQ3MTkyYzU0OThkOCIsImlhdCI6MTYyMTgxMDU2NiwiZXhwIjoxNjIyNDIyNTY2fQ.FevPAi8qc2BY6KLjIqzsgR0FPlcf3HmJ9O6de2uH2cM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

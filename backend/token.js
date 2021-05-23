@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken') //jwt
 const UserController = require('./Controllers/UserController')
 
-const time = '1h'
+const time = '6h'
 const SecretKey = process.env.SECRET_KEY || "SUPERSEKRETO"
 
 async function validateToken(token){
