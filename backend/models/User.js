@@ -46,10 +46,6 @@ UserSchema.methods.isValid = async function(body){
             response.password = "La contraseña es muy corta"
             response.isValid = false
         }
-        if(!body.password.match(/^[A-Za-z]\w{7,14}$/)){
-            response.password = "La contraseña es invalida"
-            response.isValid = false
-        }
         if(body.country.length < 3){
             response.country = "El pais es muy corto"
             response.isValid = false
