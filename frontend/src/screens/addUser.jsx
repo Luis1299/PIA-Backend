@@ -26,8 +26,6 @@ class AddUserScreen extends React.Component{
                 password: this.state.password,
                 country: this.state.country
             })
-            
-            console.log("Xd")
             this.props.history.push('/users')
 
         }catch(err){

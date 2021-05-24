@@ -53,10 +53,10 @@ function UserRow(props){
                 await logout()
             window.location.reload()
         }catch(err){
-            // if(err.status === 401){ // Token expiro o invalido
-            //     alert("Su token ha expirado o es invalido, inicie sesion nuevamente")
-            //     history.push('/login')
-            // }
+            if(err.status === 401){ // Token expiro o invalido
+                alert("Su token ha expirado o es invalido, inicie sesion nuevamente")
+                history.push('/login')
+            }
         }
     }
 

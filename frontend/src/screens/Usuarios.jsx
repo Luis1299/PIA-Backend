@@ -15,7 +15,6 @@ class UsersScreen extends React.Component {
     async componentDidMount(){
         try{
             if(!this.context.isLogedIn()){
-                console.log("xd")
                 throw {status: 401}
             }
             let result = await this.context.getAll()
