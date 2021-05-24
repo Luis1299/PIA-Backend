@@ -13,7 +13,7 @@ Para comenzar se necesitan instalar las librerias y modulos con los siguientes c
 * En caso de querer ejecutar el servidor en modo localhost cambiar la extension del archivo [.env.example](https://github.com/Luis1299/PIA-Backend/blob/main/backend/.env.example) a simplemente .env y modificar segun sea necesario:
 
 ```
-MONGODB_URI= se asigna la url del servidor mongodb ya sea local o en red
+MONGODB_URI= se asigna la url del servidor mongodb ya sea local o en red incluyendo la base de datos (url/nombre)
 PORT= se asigna el puerto del servidor
 SECRET_KEY= se asigna una llave para el hashing
 ```
@@ -26,20 +26,22 @@ SECRET_KEY= se asigna una llave para el hashing
 ------------
 ## Lista
 
-- [x] CRUD: Create 
+- [x] CRUD: Create (enpoint /register)
 	* Registro de nuevos usuarios [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/Controllers/UserController.js#L27-L35)
-- [x] CRUD: Read
+- [x] CRUD: Read (endpoint /users)
 	* Obtener arreglo de usuarios [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/Controllers/UserController.js#L8-L10)
-- [x] CRUD: Update
+- [x] CRUD: Update (endpoint /users/:id)
    	* Actualizar un usuario [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/Controllers/UserController.js#L37-L45)
-- [x] CRUD: Delete
+- [x] CRUD: Delete (endpoint /users/:id)
 	* Borrar un usuario [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/Controllers/UserController.js#L47-L56)
 - [x] Uso de Token Bearer
-	* Generación del token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/token.js#L20-L24)
-	* Validación del token y existencia del usuario [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/token.js#L7-L18)
-	* Read (lectura de usuarios) protegido por jwt token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L8-L15)
-	* Update (actualizar usuarios) protegido por jwt token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L84-L91)
-	* Delete (borrar usuarios) protegido por jwt token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L117-L124)
+	* endpoints [/users/login](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L31) y [users/register](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L53)
+		* Generación del token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/token.js#L20-L24)
+	* endpoints GET [/users](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L7), PUT [/users:id](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L77) y DELETE [/users:id](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L114)
+		* Validación del token y existencia del usuario [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/token.js#L7-L18)
+		* Read (lectura de usuarios) protegido por jwt token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L8-L15)
+		* Update (actualizar usuarios) protegido por jwt token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L84-L91)
+		* Delete (borrar usuarios) protegido por jwt token [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/routes/user.js#L117-L124)
 - [x] Configurar CORS
  	* En este caso los cors se [imporaron](https://github.com/Luis1299/PIA-Backend/blob/main/backend/index.js#L3) y configuraron de manera que se pueda acceder desde cualquier origen [Codigo](https://github.com/Luis1299/PIA-Backend/blob/main/backend/index.js#L15-L16)
 ------------
@@ -50,22 +52,23 @@ Los endpoints del backend suponiendo que se encuentra en modo local (http://loca
 http://localhost:8000/users
 * Llamada curl:
 	Reemplazando `<JWT Token>` por el token obtenido al registrarse o iniciar sesión
-```
-curl -L -X GET "localhost:8000/users" -H "Authorization: Bearer <JWT Token>"
-```
+	
+	```
+	curl -L -X GET "localhost:8000/users" -H "Authorization: Bearer <JWT Token>"
+	```
 * Método: GET
 * Headers: Se necesita obtener el token JWT ya sea haciendo iniciando sesión (/users/login) o Registrarse (/users/register) y enviar el token:
 “Authorization: Bearer `<JWT Token>`”
 * **Status 200 – OK:** Retorna un arreglo de los usuarios en JSON con el siguiente formato: 
 _Donde las comillas representan el valor del atributo del usuario_
-```
-[{
-	firstName: “”, 
-	lastName: “”,
-	email: “”, 
-	country: “”
-}, {…}]
-```
+	```
+	[{
+		firstName: “”, 
+		lastName: “”,
+		email: “”, 
+		country: “”
+	}, {…}]
+	```
 * **Status 401 – Not authorized**: 
 	* Token expiro: "El token ha expirado, inicia sesión nuevamente”
 	* No se envió token: "Error, inicia sesión primero”
