@@ -59,6 +59,6 @@ Proyecto final de la materia backend
 ## Probar la aplicación en heroku
 Primero abrir el backend y una vez que cargue abrir el frontend
 * Backend
-https://piabackend.herokuapp.com/login
+https://piabackend.herokuapp.com
 * Frontend
 https://piabackend-frontend.herokuapp.com/login
