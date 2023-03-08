@@ -55,10 +55,3 @@ Proyecto final de la materia backend
     Retorna: lista de usuarios pero ya con el usuario de id especificado modificado
     * **DELETE User:** http://localhost:8000/users/"id" </br>
     Retorna: lista de usuarios pero ya eliminado el usuario con el id especificado
-
-## Probar la aplicación en heroku
-Primero abrir el backend y una vez que cargue abrir el frontend
-* Backend
-https://piabackend.herokuapp.com
-* Frontend
-https://piabackend-frontend.herokuapp.com/login
